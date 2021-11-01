@@ -1,0 +1,45 @@
+{
+    "alias": "papa-nicks-pizza-bellport",
+    "categories": [
+        {
+            "alias": "pizza",
+            "title": "Pizza"
+        },
+        {
+            "alias": "italian",
+            "title": "Italian"
+        }
+    ],
+    "coordinates": {
+        "latitude": 40.75728,
+        "longitude": -72.93975
+    },
+    "display_phone": "(631) 286-6400",
+    "distance": 487.6239615105954,
+    "id": "LX3FxYT7WVrjsJVJ0Z2G2Q",
+    "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/YWxsWF6AByrt5m7qAFhjKg/o.jpg",
+    "is_closed": false,
+    "location": {
+        "address1": "117 S Country Rd",
+        "address2": "Ste C",
+        "address3": "",
+        "city": "Bellport",
+        "country": "US",
+        "display_address": [
+            "117 S Country Rd",
+            "Ste C",
+            "Bellport, NY 11713"
+        ],
+        "state": "NY",
+        "zip_code": "11713"
+    },
+    "name": "Papa Nick's Pizza",
+    "phone": "+16312866400",
+    "price": "$",
+    "rating": 4,
+    "review_count": 46,
+    "transactions": [
+        "delivery"
+    ],
+    "url": "https://www.yelp.com/biz/papa-nicks-pizza-bellport?adjust_creative=AgOPSsHII7543AOMVTyUtA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=AgOPSsHII7543AOMVTyUtA"
+}
