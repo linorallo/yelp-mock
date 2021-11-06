@@ -105,3 +105,5 @@ export type BusinessDetails = {
         is_overnight: boolean;
     }[];
 }
+
+export type Filter = { id: string, name: string, options: string[] }

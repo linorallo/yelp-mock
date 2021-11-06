@@ -5,7 +5,7 @@ import { SearchBar } from "../components/SearchBar";
 import yelp from "../api/yelp";
 import { Results } from "../components/ResultsList";
 import useResults from "../hooks/useResults";
-import Button from "../components/utils/Button";
+import Button from "../components/utils/Buttons/Button";
 import Map from "../components/utils/Map";
 import { Business } from "../types/declarations";
 import ResultsContainer from "../components/ResultsContainer";

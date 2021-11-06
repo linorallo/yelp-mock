@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, TextInput } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
+import CardModal from "./utils/CardModal";
 
 export const SearchBar = ({ onSubmitSearch }: { onSubmitSearch: any }) => {
   const [searchInput, setSearchInput] = useState("");

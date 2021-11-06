@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import { colors } from "./Colors";
+import { colors } from "../Colors";
 export default function RoundButton({ children, size, onPress }: any) {
   return (
     <TouchableOpacity
@@ -15,7 +15,7 @@ export default function RoundButton({ children, size, onPress }: any) {
         alignItems: "center",
       }}
     >
-      {children}
+      <View>{children}</View>
     </TouchableOpacity>
   );
 }

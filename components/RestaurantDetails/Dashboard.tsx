@@ -6,9 +6,11 @@ import {
   Image,
   TouchableOpacity,
   Linking,
+  Alert,
+  Platform,
 } from "react-native";
 import { Business, BusinessDetails } from "../../types/declarations";
-import RoundButton from "../utils/RoundButton";
+import RoundButton from "../utils/Buttons/RoundButton";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import BusinessClock, { BusinessHours } from "../utils/BusinessClock";
 export default ({ restaurant }: { restaurant: BusinessDetails }) => {
@@ -26,22 +28,42 @@ export default ({ restaurant }: { restaurant: BusinessDetails }) => {
         </View>
       </View>
       <View style={styles.actions}>
-        <RoundButton
-          size={60}
-          onPress={() => Linking.openURL(`tel:${restaurant.phone}`)}
-        >
-          <MaterialCommunityIcons
-            name="phone-in-talk-outline"
-            size={35}
-            color="black"
-          />
-        </RoundButton>
-        <RoundButton size={60}>
-          <MaterialCommunityIcons name="map-outline" size={35} color="black" />
-        </RoundButton>
-        <RoundButton size={60} onPress={() => Linking.openURL(restaurant.url)}>
-          <MaterialCommunityIcons name="web" size={35} color="black" />
-        </RoundButton>
+        {restaurant.phone && (
+          <RoundButton
+            size={60}
+            onPress={() => Linking.openURL(`tel:${restaurant.phone}`)}
+          >
+            <MaterialCommunityIcons
+              name="phone-in-talk-outline"
+              size={35}
+              color="black"
+            />
+          </RoundButton>
+        )}
+        {restaurant.coordinates && (
+          <RoundButton
+            size={60}
+            onPress={() => {
+              Linking.openURL(
+                `https://maps.google.com/?q=${restaurant.coordinates.latitude},${restaurant.coordinates.longitude}`
+              );
+            }}
+          >
+            <MaterialCommunityIcons
+              name="map-outline"
+              size={35}
+              color="black"
+            />
+          </RoundButton>
+        )}
+        {restaurant.url && (
+          <RoundButton
+            size={60}
+            onPress={() => Linking.openURL(restaurant.url)}
+          >
+            <MaterialCommunityIcons name="web" size={35} color="black" />
+          </RoundButton>
+        )}
       </View>
     </View>
   );

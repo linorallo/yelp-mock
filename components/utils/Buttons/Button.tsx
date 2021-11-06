@@ -17,7 +17,7 @@ export default function Button({
       margin: 10,
       paddingHorizontal: 20,
       paddingVertical: 10,
-      borderRadius: 7,
+      borderRadius: 20,
     },
     ButtonText: {
       color: !textColorProp ? "#DDDDDD" : textColorProp,

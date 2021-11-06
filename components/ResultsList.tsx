@@ -14,22 +14,44 @@ import Rating from "./utils/Rating";
 
 export const Results = ({
   restaurants,
-  filter,
+  filters,
   navigation,
 }: {
   restaurants: Business[];
-  filter: string;
+  filters: { id: string; selectedOption: string }[];
   navigation: NavigationProp<ParamListBase>;
 }) => {
   const [sortedRestaurants, setSortedRestaurants] =
     useState<Business[]>(restaurants);
   useEffect(() => {
-    if (filter) {
-      setSortedRestaurants(
-        restaurants.filter((restaurant: any) => restaurant.price === filter)
-      );
+    if (filters.length > 0) {
+      let filteredRestaurants = restaurants;
+      const filterBy = filters.find((filter) => filter.id === "sort_by");
+      filters.forEach((filter) => {
+        if (filter.id === "price") {
+          filteredRestaurants = filteredRestaurants.filter(
+            (restaurant) => restaurant.price === filter.selectedOption
+          );
+          if (filterBy) {
+            filteredRestaurants = filteredRestaurants.sort(
+              (a, b) => a.price.length - b.price.length
+            );
+          }
+        } else if (filter.id === "rating") {
+          filteredRestaurants = filteredRestaurants.filter(
+            (restaurant) => restaurant.rating === Number(filter.selectedOption)
+          );
+          if (filterBy) {
+            filteredRestaurants = filteredRestaurants.sort(
+              (a, b) => a.rating - b.rating
+            );
+          }
+        }
+      });
+
+      setSortedRestaurants(filteredRestaurants);
     }
-  }, [filter]);
+  }, [filters]);
   const Item = ({ item }: { item: Business }) => {
     return (
       <View>
@@ -44,7 +66,9 @@ export const Results = ({
               <Text style={styles.ListItemTitle}>{item.name}</Text>
 
               <Text style={{ color: colors.normal }}>
-                {Math.round(item.distance / 1000)} kms. away
+                {Math.round(item.distance / 1000) === 0
+                  ? ` ${Math.round(item.distance / 1000)} kms. away`
+                  : `${Math.round(item.distance)} mts. away`}
               </Text>
             </View>
             <View
